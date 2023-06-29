@@ -1,0 +1,3719 @@
+{
+	"info": {
+		"_postman_id": "4f081002-9f30-4266-a1b6-5f38dfd5dbf4",
+		"name": "LMS_Postman_API_Hackathon_Team15_NinjaGeeks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Program Module",
+			"item": [
+				{
+					"name": "Create New Program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a2612ca7-0ae1-4a7d-8ec2-716bf15ea4e4",
+								"exec": [
+									"var pname=\"Jun23-NinjaGeeks-SDET-\"+pm.variables.replaceIn('{{$randomInt}}');\r",
+									"\r",
+									"pm.environment.set(\"programName\", pname);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8012c50-3e74-4633-8896-17cde610b1b3",
+								"exec": [
+									"var response = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"programName\",response.programName);\r",
+									"pm.globals.set(\"programId\",response.programId);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "66bc6dfb-7187-4ead-bea6-c634081f9c3f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescription}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n};",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all programs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4acf417-111f-4468-9dfe-231dea6fe918",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Ok\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "320f3746-5ee1-4da3-83b8-cf5a0991855d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/allPrograms"
+					},
+					"response": []
+				},
+				{
+					"name": "Get program by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d85033e-3d0b-49a2-9083-232d08a0bf4b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Ok\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "44008736-ee42-4706-b0f9-67831846dcb7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}//programs/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program by name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea4021c8-a97f-4cfd-be64-229587544e8d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "76a9d1cf-fff9-421d-b02d-49477c282130",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{putprogramDescription_name}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/program/{{programName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update program by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e523e29a-225e-46f7-966a-d1ab7a7ae982",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f13bc043-3898-41d8-a090-be29d1f520f3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"programDescription\":\"{{PutprogramDescription_id}}\",\r\n\"programId\":{{programId}},\r\n\"programName\": \"{{programName}}\",\r\n\"programStatus\": \"{{programStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/putprogram/{{programId}}"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "21359c4a-036a-412f-9b7f-6cf0d56fb2d1"
+		},
+		{
+			"name": "Program Batch Module",
+			"item": [
+				{
+					"name": "Create a Batch",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9767bdca-ccd6-43cb-bba7-5adcd545e14b",
+								"exec": [
+									"var bname = \"Jun23-NinjaGeeks-SDET-PostMan-\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"pm.environment.set(\"batchName\", bname);\r",
+									"\r",
+									"var bno_ofClass = pm.variables.replaceIn('{{$randomInt}}');\r",
+									"pm.environment.set(\"batchNoOfClasses\", bno_ofClass);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "2bf96201-bca6-4f21-ba66-28b1f05d2a59",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"batchId\",response.batchId);\r",
+									"pm.globals.set(\"batchName\",response.batchName);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "fcc41879-a03f-4b52-b39a-ef1ea050fca4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\":\"{{batchName}}\",\r\n\"batchNoOfClasses\": \"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n };",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/batches"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all batches",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "86507429-4371-464b-9256-a3561382e6c9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c62a66b1-e4d2-43ce-bb24-fc40ad874226",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/batches"
+					},
+					"response": []
+				},
+				{
+					"name": "Get batch by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e69914cc-b8b3-47ff-a0ea-7c3cb72577e1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "bb641da7-a02f-4789-a03b-dcb6d4004d78",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}//batches/batchId/{{batchId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get batch by Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae7910fd-a807-4f23-90d4-f11c7af1c008",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "05346327-55e8-4bbc-9f9d-041ff4db9296",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}//batches/batchName/{{batchName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch valid data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40ef4533-f798-4aa9-8a96-99e339455916",
+								"exec": [
+									"//setting variable batch id and passing its valid values to request url\r",
+									"\r",
+									"//pm.collectionVariables.set(\"batchID1\", \"900\");\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"ok\" message\r",
+									"pm.test(\"Response body contains 'ok'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "d9c22548-fdd4-423a-b70c-5da1c766be28",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"batchDescription\": \"{{put_batchDescription}}\",\r\n  \"batchId\": {{batchId}},\r\n  \"batchName\": \"{{batchName}}\",\r\n  \"batchNoOfClasses\": {{batchNoOfClasses}},\r\n  \"batchStatus\": \"{{batchStatus}}\",\r\n  \"programId\": {{programId}},\r\n  \"programName\": \"{{programName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/batches/{{batchId}}"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "35d90555-65ed-43df-a1ab-959e936d5826"
+		},
+		{
+			"name": "User Module",
+			"item": [
+				{
+					"name": "Creating User with Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53f72552-f585-4014-82b0-666ab9f1f816",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"UserID\",response.userId);\r",
+									"pm.globals.set(\"Fname\",response.userFirstName);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8812a256-f18c-4fa9-8cc6-bf96e544073d",
+								"exec": [
+									"var random_usrname=\"NinjaGeeks-\"+pm.variables.replaceIn('{{$randomInt}}');\r",
+									"\r",
+									"pm.environment.set(\"User_Name_env\",random_usrname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "9b3a3df3-6a12-40cb-b84b-e4edb87a4cf9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"userComments\": \"{{userComments}}\",\r\n    \"userEduPg\": \"{{userEduPg}}\",\r\n    \"userEduUg\": \"{{userEduUg}}\",\r\n    \"userFirstName\": \"{{User_Name_env}}\",\r\n    \"userLastName\": \"{{userLastName}}\",\r\n    \"userLinkedinUrl\": \"{{userLinkedinUrl}}\",\r\n    \"userLocation\": \"{{userLocation}}\",\r\n    \"userMiddleName\": \"{{userMiddleName}}\",\r\n    \"userPhoneNumber\": {{userPhoneNumber}},\r\n    \"userRoleMaps\": [\r\n        {\r\n            \"roleId\": \"{{roleId}}\",\r\n            \"userRoleStatus\": \"{{userRoleStatus}}\"\r\n        }\r\n    ],\r\n    \"userTimeZone\": \"{{userTimeZone}}\",\r\n    \"userVisaStatus\": \"{{userVisaStatus}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleStatus"
+					},
+					"response": []
+				},
+				{
+					"name": "All users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6b750a22-d5a1-475c-8c6c-03c504eb19ae",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Ok\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "0ce4ff57-b2fc-4c16-bcaa-7f6c9cc756f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/users/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User info by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ce206d7-4d66-44f6-9a7b-7adfc30389f6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Ok\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"check UserId is present in response\",()=>{\r",
+									" var jsonData = pm.response.json();\r",
+									" pm.expect(jsonData.userID).to.eql(pm.environment.get(\"UserID\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "90a816e6-a6ca-4a1d-b008-28034c380981",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/{{UserID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users with roles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0368623c-02c2-450f-b1a3-8e9845de9e9e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Ok\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "a5a1412d-d9ed-4def-bfdd-f63625bc5abc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/users/users/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91c6226c-0deb-4217-b21b-c66f4e484a66",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "e376c144-84c6-4c5a-b920-f17e522e6406",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userComments\": \"{{userComments}}\",\r\n  \"userEduPg\": \"{{Put_userEduPg}}\",\r\n  \"userEduUg\": \"{{Put_userEduUg}}\",\r\n  \"userFirstName\": \"{{Fname}}\",\r\n  \"userId\": \"{{UserID}}\",\r\n  \"userLastName\": \"{{userLastName}}\",\r\n  \"userLinkedinUrl\": \"{{userLinkedinUrl}}\",\r\n  \"userLocation\": \"{{userLocation}}\",\r\n \r\n  \"userPhoneNumber\": {{userPhoneNumber}},\r\n  \"userTimeZone\": \"{{userTimeZone}}\",\r\n  \"userVisaStatus\": \"{{userVisaStatus}}\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/{{UserID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Role Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "23f495ea-50c3-4859-abb2-eee09426f8d4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "da6f7009-bcd5-4226-af9e-1e2c19324a2b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\":\"{{roleId}}\",\r\n    \"userRoleStatus\":\"{{userRoleStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleStatus/{{UserID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Update User Role Program Batch Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d642b66e-17a4-4e5c-b0ae-c2c835251069",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "249b8181-7337-413d-b1bb-715bf8d114c4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programId\": {{programId}},\r\n  \"roleId\": \"{{roleId}}\",\r\n  \"userId\": \"{{UserID}}\",\r\n  \"userRoleProgramBatches\": [\r\n    {\r\n      \"batchId\": {{batchId}},\r\n      \"userRoleProgramBatchStatus\": \"Active\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleProgramBatchStatus/{{UserID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db9697aa-7ad3-4a3e-9231-99265546afbd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "cc4ac89f-f46d-4aed-983f-25102a883ffe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/getAllStaff"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "ae14ede8-f43e-49a2-9508-851ad7ceffc1"
+		},
+		{
+			"name": "Assignment Module",
+			"item": [
+				{
+					"name": "Get all Assignments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fabe4dbb-f414-4d56-aa86-f1291d33c25f",
+								"exec": [
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "623cbdea-7913-40e6-a4a1-8c220c13b0ed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Assignment- DataDriven",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "92b09e5d-1f5a-4ff6-b171-927fee25c7dd",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"AssignmentID\",response.assignmentId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5e5878ed-650f-413f-8b0b-0b9c9ada258d",
+								"exec": [
+									"var assignname = \"Jun23-NinjaGeeks-SDET-Java-\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"var assignname = \"Jun23-NinjaGeeks-SDET-SQL-\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"//var assigndes = \"Java Hackathon\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"//var assigndes = \"SQL Queries\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"pm.environment.set(\"assignmentName\",assignname);\r",
+									"//pm.environment.set(\"assignmentDescription\",assigndes)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "fbdfd9ff-1360-4070-9890-96462856837b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": \"{{assignmentId}}\",\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{assignment_batchId}}\",\r\n  \"comments\": \"{{comments}}\",\r\n  \"createdBy\": \"{{Assignment_createdBy}}\",\r\n  \"dueDate\": \"{{dueDate}}\",\r\n  \"graderId\": \"{{graderId}}\",\r\n  \"pathAttachment1\": \"{{pathAttachment1}}\",\r\n  \"pathAttachment2\": \"{{pathAttachment2}}\",\r\n  \"pathAttachment3\": \"{{pathAttachment3}}\",\r\n  \"pathAttachment4\": \"{{pathAttachment4}}\",\r\n  \"pathAttachment5\": \"{{pathAttachment5}}\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{BaseUrl}}/assignments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "995b122b-6168-463d-bf08-f49ee228e669",
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"AssignmentID\",response.assignmentId);\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"OK\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "cf1628de-3377-4b82-a376-8b63902dba04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/{{AssignmentID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment for Batch",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3bcaf4cc-83c7-4277-aa16-94923ce15591",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "64677d33-1ea5-4560-b07a-34e3432fcff4",
+								"exec": [
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c8a27265-b24b-4336-8d67-b4ff1e454836",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/batch/{{assignment_batchId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ec955b6e-810f-4953-8993-0c9217f46010",
+								"exec": [
+									"//pm.collectionVariables.set(\"AssignmentID\", \"assignmentId\");\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "763fd44d-c078-42d2-a1be-1aa39f84a02d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"assignmentDescription\": \"{{put_assignmentDescription}}\",\r\n  \"assignmentId\": \"{{assignmentId}}\",\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": {{assignment_batchId}},\r\n  \"comments\": \"{{comments}}\",\r\n  \"createdBy\": \"{{Assignment_createdBy}}\",\r\n  \"dueDate\": \"{{dueDate}}\",\r\n  \"graderId\": \"{{graderId}}\",\r\n  \"pathAttachment1\": \"{{pathAttachment1}}\",\r\n  \"pathAttachment2\": \"{{pathAttachment2}}\",\r\n  \"pathAttachment3\": \"{{pathAttachment3}}\",\r\n  \"pathAttachment4\": \"{{pathAttachment4}}\",\r\n  \"pathAttachment5\": \"{{pathAttachment5}}\"\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignments/{{AssignmentID}}"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "fe8714f4-0e77-4ff4-aa19-d9c2f4876e51"
+		},
+		{
+			"name": "Assignment Submit Module",
+			"item": [
+				{
+					"name": "Get all submission",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "7258021e-54d7-466b-b4b5-a3326df95f5d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "c8013256-8d3e-422e-8733-b0d91bb6bc84",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Submit assignment with Valid data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3df0ebea-15c7-49e0-9a0e-c28ffc6fdc05",
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.globals.set(\"submissionId1\",response.submissionId);\r",
+									"pm.globals.set(\"assignmentId1\",response.assignmentId);\r",
+									"//setting variable batch id and passing its values to request url\r",
+									"//pm.collectionVariables.set(\"submissionId1\", \"24\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'created'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Created\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "4722f414-2788-491f-8294-165e45715497",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"assignmentId\":1325,\"userId\":\"U1505\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission",
+						"description": "POST Request : Submit Assignment\n\nStatus Code check :assignment submkitted successfully 201 ok with message and boolean success details."
+					},
+					"response": [
+						{
+							"id": "71d815f0-d63b-4019-bbf2-eb3515ea1101",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"assignmentId\":264,\"userId\":\"U121\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/assignmentsubmission"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Jun 2023 04:00:37 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"submissionId\": 113,\n    \"assignmentId\": 264,\n    \"userId\": \"U121\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-26-2023 04:00:37\",\n    \"gradedBy\": null,\n    \"gradedDateTime\": null,\n    \"grade\": -1\n}"
+						},
+						{
+							"id": "a86ede40-ad1d-46c6-ba63-79a06b516349",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"assignmentId\":10,\"userId\":\"U92\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/assignmentsubmission"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Jun 2023 17:51:28 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"submissionId\": 24,\n    \"assignmentId\": 10,\n    \"userId\": \"U92\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-24-2023 17:51:29\",\n    \"gradedBy\": null,\n    \"gradedDateTime\": null,\n    \"grade\": -1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Assignement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8c75c8a-5cd7-4f55-8d5f-010bda219428",
+								"exec": [
+									"pm.collectionVariables.set(\"assignmentId1\",\"1325\");\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "32268e8f-ec18-4fc1-92df-5cef2dfb248e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assignmentId\": 1325,\r\n    \"userId\": \"U1505\",\r\n    \"subDesc\": \"Test1\",\r\n    \"subComments\": \"test1\",\r\n    \"subPathAttach1\": \"test\",\r\n    \"subPathAttach2\": \"test\",\r\n    \"subPathAttach3\": \"test\",\r\n    \"subPathAttach4\": \"test\",\r\n    \"subPathAttach5\": \"test\",\r\n    \"subDateTime\": \"06-28-2023 07:12:27\",\r\n    \"gradedBy\": null,\r\n    \"gradedDateTime\": null,\r\n    \"grade\": -1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission/{{assignmentId1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignmentsubmit grade assignment submission",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc7ecf54-0b1d-4f65-9bb3-c69ce8f4b6c7",
+								"exec": [
+									"pm.collectionVariables.set(\"submissionId\", \"507\");\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "176cc920-76da-4ebc-81b9-6b113055b31c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   // \"submissionId\": 490,\r\n    \"assignmentId\": 1325,\r\n    \"userId\": \"U1505\",\r\n    \"subDesc\": \"Test1\",\r\n    \"subComments\": \"test1\",\r\n    \"subPathAttach1\": \"test\",\r\n    \"subPathAttach2\": \"test\",\r\n    \"subPathAttach3\": \"test\",\r\n    \"subPathAttach4\": \"test\",\r\n    \"subPathAttach5\": \"test\",\r\n    \"subDateTime\": \"06-28-2023 07:12:27\",\r\n    \"gradedBy\": \"U284\",\r\n    \"gradedDateTime\": null,\r\n    \"grade\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission/gradesubmission/{{submissionId1}}"
+					},
+					"response": [
+						{
+							"id": "405d8121-81bb-4c38-b6a1-3b02b6a8eb14",
+							"name": "Update Assignmentsubmit grade assignment submission",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   // \"submissionId\": 490,\r\n    \"assignmentId\": 1325,\r\n    \"userId\": \"U1505\",\r\n    \"subDesc\": \"Test1\",\r\n    \"subComments\": \"test1\",\r\n    \"subPathAttach1\": \"test\",\r\n    \"subPathAttach2\": \"test\",\r\n    \"subPathAttach3\": \"test\",\r\n    \"subPathAttach4\": \"test\",\r\n    \"subPathAttach5\": \"test\",\r\n    \"subDateTime\": \"06-28-2023 07:12:27\",\r\n    \"gradedBy\": \"U284\",\r\n    \"gradedDateTime\": null,\r\n    \"grade\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/assignmentsubmission/gradesubmission/{{submissionId}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Jun 2023 07:15:32 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"submissionId\": 507,\n    \"assignmentId\": 1325,\n    \"userId\": \"U1505\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-28-2023 07:12:27\",\n    \"gradedBy\": \"U284\",\n    \"gradedDateTime\": \"06-28-2023 07:15:32\",\n    \"grade\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "Get grades by Assignment ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"//pm.collectionVariables.set(\"batchID1\", \"2\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "0e200f47-3cb7-4aa2-a094-b4b37d40ff90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/getGrades/314",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "e3df85da-05b5-436d-a3b1-5d7979661e16",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get grades by Student ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"UserId1\", \"U1505\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "4becbf15-91c4-4eb5-8d9c-bfab1b19f3b1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/getGradesByStudentId/{{UserId1}}",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "6b206d96-58b7-450b-bdef-73c230d1e6c6",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Grades by Valid Batch ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"newbatchID1\", \"2016\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "a657277e-9bd4-4a22-8d5c-8da4faadae32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/grades/{{newbatchID1}}",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "58937c6d-dc1b-4e01-bd6d-36959d70d678",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						},
+						{
+							"id": "fe60512b-818e-440d-8794-077d3c96c9e1",
+							"name": "Get Grades by Valid Batch ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID1}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Jun 2023 19:36:06 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 108,\n        \"assignmentId\": 197,\n        \"userId\": \"U433\",\n        \"subDesc\": \"1Submission  for hackathon\",\n        \"subComments\": \"postman l\",\n        \"subPathAttach1\": \"path1l\",\n        \"subPathAttach2\": \"path2\",\n        \"subPathAttach3\": \"path3\",\n        \"subPathAttach4\": \"path4\",\n        \"subPathAttach5\": \"path5\",\n        \"subDateTime\": \"06-26-2023 02:55:03\",\n        \"gradedBy\": null,\n        \"gradedDateTime\": null,\n        \"grade\": -1\n    },\n    {\n        \"submissionId\": 211,\n        \"assignmentId\": 197,\n        \"userId\": \"U234\",\n        \"subDesc\": \"Assignment submission by U234\",\n        \"subComments\": \"submitted succesfully\",\n        \"subPathAttach1\": \"file1.json\",\n        \"subPathAttach2\": \"file2.json\",\n        \"subPathAttach3\": \"file3.json\",\n        \"subPathAttach4\": \"file4.json\",\n        \"subPathAttach5\": \"file5.json\",\n        \"subDateTime\": \"06-26-2023 20:48:47\",\n        \"gradedBy\": \"U1172\",\n        \"gradedDateTime\": \"06-27-2023 07:39:36\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Submission with valid User ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f28cdc02-0297-4a28-9a11-aa13578c262a",
+								"exec": [
+									"//setting variable USer id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"UserID1\", \"U21\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "1d57f99b-747f-45ad-86dd-f60bd01f4a0e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/student/{{UserID1}}"
+					},
+					"response": [
+						{
+							"id": "6f4db7b3-84aa-4060-b50b-b173469875d9",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-005_01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/student/{{UserID1}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 09:49:00 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Submission with valid Batch ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b9b02e4-813a-4e69-95d8-6f5025704763",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"batchID1\", \"1078\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f4f174bc-16c5-45a9-a3fc-8f7638e2dca3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/studentbatch/{{batchID1}}"
+					},
+					"response": [
+						{
+							"id": "ef0f3b15-5b37-4df9-8854-f094480b52bc",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-006_01",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/studentbatch/{{batchID1}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 10:02:31 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 54,\n        \"assignmentId\": 13,\n        \"userId\": \"U433\",\n        \"subDesc\": \"13 Submission for hackathon\",\n        \"subComments\": \"postman \",\n        \"subPathAttach1\": \"path1\",\n        \"subPathAttach2\": \"path2\",\n        \"subPathAttach3\": \"path3\",\n        \"subPathAttach4\": \"path4\",\n        \"subPathAttach5\": \"path5\",\n        \"subDateTime\": \"06-25-2023 01:58:24\",\n        \"gradedBy\": null,\n        \"gradedDateTime\": null,\n        \"grade\": -1\n    },\n    {\n        \"submissionId\": 55,\n        \"assignmentId\": 13,\n        \"userId\": \"U78\",\n        \"subDesc\": \"string\",\n        \"subComments\": \"string\",\n        \"subPathAttach1\": \"string\",\n        \"subPathAttach2\": \"string\",\n        \"subPathAttach3\": \"string\",\n        \"subPathAttach4\": \"string\",\n        \"subPathAttach5\": \"string\",\n        \"subDateTime\": \"06-25-2023 03:15:06\",\n        \"gradedBy\": null,\n        \"gradedDateTime\": null,\n        \"grade\": -1\n    },\n    {\n        \"submissionId\": 60,\n        \"assignmentId\": 13,\n        \"userId\": \"U19\",\n        \"subDesc\": \"team 22 API Explorer\",\n        \"subComments\": \"created by team22\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-25-2023 03:44:29\",\n        \"gradedBy\": null,\n        \"gradedDateTime\": null,\n        \"grade\": -1\n    }\n]"
+						}
+					]
+				}
+			],
+			"_postman_id": "0dd246c8-cd7c-4bc9-ac2b-36afa477269a"
+		},
+		{
+			"name": "Delete Module",
+			"item": [
+				{
+					"name": "Delete program by Program Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55347f9b-53ae-4d94-96f1-a8c6dc82f218",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "38007ae7-e6b6-40fc-b235-a79c04c2b430",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/deletebyprogname/{{programName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete program by Program ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e39ea43-ebc8-4ce5-ba58-0599c8024f6b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "e17156ad-7dbe-427c-a829-ea75e438ee5b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/deletebyprogid/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39c777a1-3f4b-49e2-adf9-ae3d11336c6a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b07c1fd9-96fe-4708-8dd1-8eeb943844ef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/batches/{{batchId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User with UserId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "705e734a-b37a-493a-afcb-85e3494cc172",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//var response = pm.response.json();\r",
+									"//pm.globals.unset(\"UserID\",response.userId);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "fc4fbabc-48e3-4e51-8b3c-e85eb5ada20c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/users/users/{{UserID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Assignment by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f97ea059-fd33-4c62-b46c-d4859c3ba693",
+								"exec": [
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "397c91ab-39f0-4b68-9046-ae480e593a14",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "085f8350-0c57-444e-a6c7-8a655ff0f0a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/{{AssignmentID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Jun23-NinjaGeeks-AssignmentSubmit-Del_02",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "69925580-743c-4039-9d47-f72e5ae33f8a",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"//pm.collectionVariables.set(\"submissionId1\", \"24\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'OK'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "5c9d3ade-f59e-4f2b-8466-afc96c133a04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/{{submissionId1}}",
+						"description": "DELETE Request : \r\nBaseUrl: https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms\r\nEndpoint: /assignmentsubmission/{Id}\r\n\r\nStatus Code check: 200 OK with message and boolean success details"
+					},
+					"response": [
+						{
+							"id": "312215de-38c7-4bfa-87cb-70962751ad86",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Del_02",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/{{submissionId}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Jun 2023 05:22:59 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Submission deleted successfully\",\n    \"success\": true\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "83444fcf-40ff-4f66-9cf5-887cedda9059"
+		},
+		{
+			"name": "Invalid Data Module",
+			"item": [
+				{
+					"name": "Invalid DataDriven POST Program with random Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "14dab391-66aa-4ecc-a0b9-112b7142133f",
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b01ae2b0-53cf-4c44-92fa-95054e83efea",
+								"exec": [
+									"pm.collectionVariables.set(\"programName\",\"abcd\");\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c175e295-3613-4915-a147-1eac19d878d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescription}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "GET one ProgramId Invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "33ed8033-33d3-42cf-8d46-f7659d28a49a",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b176f7b5-e06a-4eb5-acbe-7786a455e89b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/programs/500"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program by Name with invalid Program name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a772a254-ea3b-4120-8de3-9053107f7a8f",
+								"exec": [
+									"//pm.collectionVariables.set(\"programName1\",\"abcd\");\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404)\r",
+									"});\r",
+									"    //pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    //pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"//});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "d8fb7552-8487-4d09-af2a-8aae7877a727",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"Postman Learning\",\r\n  \"programName\": \"abcd\",\r\n  \"programStatus\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/program/abcd"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program by Name with missing field",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a772a254-ea3b-4120-8de3-9053107f7a8f",
+								"exec": [
+									"//pm.collectionVariables.set(\"programName1\",\"abcd\");\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"    });\r",
+									"\r",
+									"  //  pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"  //  pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"//});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "1a242834-84a4-4513-ae60-39c20dfd6597",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"Postman Learning\",\r\n  \"programName\": \r\n  \"programStatus\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/program/{{programName1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "update Program by ID with invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64066fde-6b00-4f1a-8e45-c605c4a88e86",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"\r",
+									"});\r",
+									"//     pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									" //   pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"//});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "138b32eb-a3a5-4384-b969-72d211a42bfe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"programDescription\":\"scrapping Hackathon7\",\r\n\"programId\": \"null\",\r\n\"programName\": \"Jun23-API Trackers-SDET-698\",\r\n\"programStatus\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/putprogram/9000"
+					},
+					"response": []
+				},
+				{
+					"name": "update Program by ID invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64066fde-6b00-4f1a-8e45-c605c4a88e86",
+								"exec": [
+									"\r",
+									"//pm.collectionVariables.set(\"programId\",\"90000\");\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "9f93d0e8-24bb-4700-b6a4-8c7277f4fdca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"programDescription\":\"scrapping Hackathon7\",\r\n\"programId\":90000,\r\n\"programName\": \"Jun23-API Trackers-SDET-698\",\r\n\"programStatus\": \"active\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/putprogram/90000"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch by ID invalid data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28384441-b25a-47e8-9206-6c886cce62d7",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "8c9421bc-709c-4dd5-b75c-34e480f8ae05",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/batches/batchId/1000"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch by Name invalid data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a73793e-26d9-4c35-b7ea-35bbaab66cbc",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "71a0ca87-192f-48c9-9ff3-877284b24a2c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{BaseUrl}}/batches/batchName/un23-NinjaGeeks-SDET-POSTMAN-218"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch_Invalid data_01",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aec0d950-5066-4d40-8a68-37bed3571f7d",
+								"exec": [
+									"//setting variable batch id and passing its non integer values to request url\r",
+									"pm.collectionVariables.set(\"batchID2\",\".1\" );\r",
+									"// Validate that the response code should be 400\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "4bb3cf15-9e77-4959-80bb-b1c925e0801b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"batchDescription\": \"string\",\r\n  \"batchId\": 18,\r\n  \"batchName\": \"updatedbatchs\",\r\n  \"batchNoOfClasses\": 5,\r\n  \"batchStatus\": \"Active\",,\r\n  \"programId\": 2,\r\n  \"programName\": \"Poonamprogram\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/batches/{{batchID2}}",
+						"description": "StartFragment\n\nPUT Batch – Update Batch\n\nInvalid Batch id syntex\n\n400 Bad Request response\n\nEndFragmentin"
+					},
+					"response": [
+						{
+							"id": "f10801af-0b4c-46e1-93af-f372c02d823e",
+							"name": "Jan23-NinjaGeeks-ProgramBatch-Put03",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"batchDescription\": \"string\",\r\n  \"batchId\": 18,\r\n  \"batchName\": \"updatedbatchs\",\r\n  \"batchNoOfClasses\": 5,\r\n  \"batchStatus\": \"Active\",\r\n  \"programId\": 2,\r\n  \"programName\": \"Poonamprogram\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseUrl}}/batches/{{batchID2}}"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "inline;filename=f.txt"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 13:16:01 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"timestamp\": \"2023-06-23T13:16:02.213+00:00\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/lms/batches/.1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7db42e7f-0198-4c12-ac3e-f01d237883ca",
+								"exec": [
+									"pm.collectionVariables.set(\"UserId2\",\"U222\");\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "42511889-1cac-47ba-9d5e-4aa27fe49082",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userComments\": \"{{userComments}}\",\r\n  \"userEduPg\": \"{{Put_userEduPg}}\",\r\n  \"userEduUg\": \"{{Put_userEduUg}}\",\r\n  \"userFirstName\": \"{{Fname}}\",\r\n  \"userId\": \"{{UserID2}}\",\r\n  \"userLastName\": \"{{userLastName}}\",\r\n  \"userLinkedinUrl\": \"{{userLinkedinUrl}}\",\r\n  \"userLocation\": \"{{userLocation}}\",\r\n \r\n  \"userPhoneNumber\": {{userPhoneNumber}},\r\n  \"userTimeZone\": \"{{userTimeZone}}\",\r\n  \"userVisaStatus\": \"{{userVisaStatus}}\"..\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/{{UserId2}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Role Status Invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d939366f-c398-46b8-b08b-ae8f4e5279c1",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b7d23c70-300a-4927-b875-3579c15e4f37",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\":\"{{roleId}}\",\r\n    \"userRoleStatus\":\"{{userRoleStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleStatus/{{UserId2}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Update User Role Program Batch Status invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d642b66e-17a4-4e5c-b0ae-c2c835251069",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3d33d6f0-8b98-4791-902a-6db269d11069",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programId\": 738,\r\n  \"roleId\": \"R02\",\r\n  \"userId\": \"U22\",\r\n  \"userRoleProgramBatches\": [\r\n    {\r\n      \"batchId\": 387,\r\n      \"userRoleProgramBatchStatus\": \"Active\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleProgramBatchStatus/U22"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Update User Role Program Batch Status invalid_2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d642b66e-17a4-4e5c-b0ae-c2c835251069",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "96805d6e-f0fe-43c8-808e-4efd443007c5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programId\": 738,\r\n  \"roleId\": \"R02\",\r\n  \"userId\": \"U22\",\r\n  \"userRoleProgramBatches\": [\r\n    {\r\n      \"batchId\": 387,\r\n      \"userRoleProgramBatchStatus\": \"Active\",,\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/users/users/roleProgramBatchStatus/{{put_userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment by Invalid AssignmentId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "995b122b-6168-463d-bf08-f49ee228e669",
+								"exec": [
+									"pm.collectionVariables.set(\"InvalidAssignmentID\", \"790\");\r",
+									"\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "32583139-6718-4010-99c2-ee53773b7dc6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/{{InvalidAssignmentID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment for Batch - Assignment not found for BatchId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7946086-bb96-4722-a7e0-e7cd189cabca",
+								"exec": [
+									"pm.collectionVariables.set(\"batchID1\",\"29\");\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "40bbff67-bcad-4139-afcc-9803e92f95bc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/batch/{{batchID2}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment for Batch -  BatchId not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7946086-bb96-4722-a7e0-e7cd189cabca",
+								"exec": [
+									"pm.collectionVariables.set(\"batchID1\", \"201\");\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "4cafd9d4-3fd3-428c-b4fa-d441f08cc549",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignments/batch/{{batchID1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Assignment-Invalid data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66fbe528-2e8d-402e-ba89-0e5cb7b78381",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"//Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4f7eb971-2066-45fa-9569-078cb07c9f8c",
+								"exec": [
+									"var assignname = \"Jun23-NinjaGeeks-SDET-Java010-\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"var assigndes = \" \" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"var bId = \"1\" + pm.variables.replaceIn('{{$randomInt}}');\r",
+									"pm.environment.set(\"assignmentName\",assignname);\r",
+									"pm.environment.set(\"assignmentDescription\",assigndes)\r",
+									"pm.environment.set(\"batchId\",bId);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c0a79b85-c6cf-4244-977b-18ba6e98f841",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": 0,\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{batchId}}\",\r\n  \"comments\": \"string\",\r\n  \"createdBy\": \"\",\r\n  \"dueDate\": \"2023-07-25T22:00:04.964+00:00\",\r\n  \"graderId\": \"U19\",\r\n  \"pathAttachment1\": \"string\",\r\n  \"pathAttachment2\": \"string\",\r\n  \"pathAttachment3\": \"string\",\r\n  \"pathAttachment4\": \"string\",\r\n  \"pathAttachment5\": \"string\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{BaseUrl}}/assignments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get grades by Invalid assignment ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"batchID1\", \"2\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 200\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "deffc3a4-7174-48ea-ad18-f0aa95955f11",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "bf2d129e-688d-4c50-94be-f5e569800480",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/getGrades/{{InvalidAssignmentID}}",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "1d5fb588-f965-4021-8991-b1526453cb12",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get grades by invalid Student ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd5f212-4273-4d8d-888a-708dd106a4ce",
+								"exec": [
+									"//setting variable batch id and passing its values to request url\r",
+									"pm.collectionVariables.set(\"batchID1\", \"2\");\r",
+									"\r",
+									"\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.unset(\"batchID\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "608929f3-6b27-41a7-8975-0c3871dafc24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/getGradesByStudentId/{{InvalidAssignmentID}}",
+						"description": "StartFragment\n\nGET Grades by BatchID when BatchId is valid ie value exist\n\nEndFragment\n\nWe can change the Batch ID values (under Tests Tab) here any valid values(which exist) to see the success response"
+					},
+					"response": [
+						{
+							"id": "cebe3fc1-d726-4417-9495-973e9c97f4ec",
+							"name": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Jun 2023 10:19:23 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n    {\n        \"submissionId\": 5,\n        \"assignmentId\": 12,\n        \"userId\": \"U19\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subPathAttach2\": \"Filepath2\",\n        \"subPathAttach3\": \"Filepath3\",\n        \"subPathAttach4\": \"Filepath4\",\n        \"subPathAttach5\": \"Filepath5\",\n        \"subDateTime\": \"06-20-2023 15:35:01\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:18:42\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 9,\n        \"assignmentId\": 12,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:20:00\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:20:08\",\n        \"grade\": 2\n    },\n    {\n        \"submissionId\": 10,\n        \"assignmentId\": 13,\n        \"userId\": \"U21\",\n        \"subDesc\": \"Submissions for SQL assignment\",\n        \"subComments\": \"SQL\",\n        \"subPathAttach1\": \"Filepath1\",\n        \"subDateTime\": \"06-20-2023 17:22:53\",\n        \"gradedBy\": \"U22\",\n        \"gradedDateTime\": \"06-20-2023 17:23:14\",\n        \"grade\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Grades with invalid Batch id_01",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b78b3f56-25f6-4903-be68-28ce4ed2df2c",
+								"exec": [
+									"//setting variable batch id and passing its invalid values to request url\r",
+									"\r",
+									"pm.collectionVariables.set(\"batchID2\", \"12\");\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"//pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"  //  pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"//});\r",
+									"\r",
+									"// Check if the response body contains a specific boolean success value\r",
+									"//pm.test(\"Response body contains 'success: false'\", function () {\r",
+									" //   pm.expect(pm.response.json().success).to.be.false;\r",
+									"//});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "60263429-ce3f-4bfa-985e-582054403eb4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/grades/{{batchID2}}"
+					},
+					"response": [
+						{
+							"id": "8912e1d5-16c2-4c1c-9576-0cb0748320d1",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-004_02",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID2}}"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 04:25:14 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Assignments with grades does not exist for Batch ID : 12\",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Gradesd with invalid Batch id _02",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf6ba3a0-e262-430b-b693-1abf87d7950b",
+								"exec": [
+									"//setting variable batch id and passing its non integer values to request url\r",
+									"pm.collectionVariables.set(\"batchID3\",\".1\" );\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c054d7f8-5191-4e32-97e6-6178c49aa548",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/grades/{{batchID3}}"
+					},
+					"response": [
+						{
+							"id": "d3c2f8d8-a571-4749-8478-e891463eb7ab",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-004_03",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{batchID3}}"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "inline;filename=f.txt"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 09:44:02 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"timestamp\": \"2023-06-25T09:44:02.487+00:00\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/lms/assignmentsubmission/grades/.1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Submission with invalid User id_01",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e3206ca-4b80-4228-b9b2-d2e379ca49af",
+								"exec": [
+									"//setting variable user id and passing its invalid values to request url\r",
+									"\r",
+									"pm.collectionVariables.set(\"userID2\", \"12\");\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains a specific boolean success value\r",
+									"pm.test(\"Response body contains 'success: false'\", function () {\r",
+									"    pm.expect(pm.response.json().success).to.be.false;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "73582540-f0f3-470b-b015-1971a57c3492",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/student/{{userID2}}"
+					},
+					"response": [
+						{
+							"id": "77cee7fe-0052-4c83-b919-fa4bac837537",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-005_02",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/student/{{userID2}}"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 09:53:55 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"User not found with UserID : 12 \",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Submission with invalid User Id_02",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "932d7a89-b08a-461f-addf-5e43478f926d",
+								"exec": [
+									"//setting variable user id and passing its non integer values to request url\r",
+									"pm.collectionVariables.set(\"userID3\",\".1\" );\r",
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f9f62c59-d305-4b0a-a5b9-78768c564710",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/grades/{{userID3}}"
+					},
+					"response": [
+						{
+							"id": "4f2b3aa1-9acb-4746-aeeb-4905e3c0a0bd",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-005_03",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/grades/{{userID3}}"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "inline;filename=f.txt"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 10:02:16 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"timestamp\": \"2023-06-25T10:02:16.533+00:00\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/lms/assignmentsubmission/grades/.1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Submission with invalid Batch Id_02",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "76677e13-f81c-4384-9c81-dc4f073eccc9",
+								"exec": [
+									"//setting variable batch id and passing its non integer values to request url\r",
+									"pm.collectionVariables.set(\"batchID3\",\".1\" );\r",
+									"// Validate that the response code should be 400\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "beb06573-7e2e-4346-8110-c441ed436a39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}/assignmentsubmission/studentbatch/{{batchID3}}",
+						"description": "GET Submission by batch ID  \nInvalid batch ID ..  \nResponse 400"
+					},
+					"response": [
+						{
+							"id": "2cf6d0bf-3d37-472b-9bd3-2f0dc2b15202",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-006_03",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/assignmentsubmission/studentbatch/{{batchID3}}"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "inline;filename=f.txt"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 10:03:10 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"timestamp\": \"2023-06-25T10:03:10.707+00:00\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/lms/assignmentsubmission/studentbatch/.1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Submit assignment with invalid data_01",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6b3103eb-66a4-4bf1-bd60-6b5c835710a3",
+								"exec": [
+									"// Validate that the response code should be 400\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Bad Request\" message\r",
+									"pm.test(\"Response body contains 'Bad Request'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Bad Request\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b74489bf-3fcf-41bb-87d7-7f66c798a069",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"assignmentId\":994,\"userId\":\"U2661\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission",
+						"description": "POST Request : Submit Assignment\n\nStatus Code check : cannot submit assignment post due date"
+					},
+					"response": [
+						{
+							"id": "0f433e2b-a6f3-4fa0-8a10-5b8c7bf6435d",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01 Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"assignmentId\":10,\"userId\":\"U92\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/assignmentsubmission"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 03:55:07 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Cannot submit assignment post due date\",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Submit assignment with invalid data_02",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e69dfcb8-2220-40bb-96c3-aa8eaa87d287",
+								"exec": [
+									"// Validate that the response code should be 404\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404)\r",
+									"\r",
+									"});\r",
+									"// Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});\r",
+									"\r",
+									"// Check if the response body contains a specific boolean success value\r",
+									"pm.test(\"Response body contains 'success: false'\", function () {\r",
+									"    pm.expect(pm.response.json().success).to.be.false;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "a4934893-e818-4d38-bed3-5d12848b12c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"assignmentId\":567,\"userId\":\"U92\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission",
+						"description": "POST Request :  Submit Assignment\r\nStatus Code check : 404 not Found with message and boolean success details."
+					},
+					"response": [
+						{
+							"id": "6ad785fa-6625-442a-a208-42e3d8cbbb4b",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_02",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"assignmentId\":567,\"userId\":\"U92\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/assignmentsubmission"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Jun 2023 04:05:01 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"message\": \"Assignment not found with ID : 567 \",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Assignmentsubmit by resubmit - Invalid AssignmentId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51d018bc-1af9-4d92-93c9-300af18a763f",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"//Check if the response body contains \"Not Found\" message\r",
+									"pm.test(\"Response body contains 'Not Found'\", function () {\r",
+									"    pm.expect(pm.response.to.have.status(\"Not Found\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "71bc4eb8-420a-4ea5-a0f0-aa6f1ab50404",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assignmentId\": \"77\",\r\n    \"userId\": \"U997\",\r\n    \"subDesc\": \"ReSubmission for Python Test1\",\r\n    \"subComments\": \"Python\",\r\n    \"subPathAttach1\": \"Filepath6\",\r\n    \"subPathAttach2\": \"Filepath2\",\r\n    \"subPathAttach3\": \"Filepath3\",\r\n    \"subPathAttach4\": \"Filepath4\",\r\n    \"subPathAttach5\": \"filepath5\",\r\n    \"subDateTime\": \"06-26-2023 05:44:14\",\r\n    \"gradedBy\": null,\r\n    \"gradedDateTime\": null,\r\n    \"grade\": -1\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/assignmentsubmission/99"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "8223fa6e-d80f-4cd1-a33e-f1b51761da79"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d2cbe7c9-382b-430e-9480-a2117a2a5b4a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "727c9cb6-87c6-4d0f-803c-97aed857252e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ff0ee58c-7af4-482d-8657-3179e83daf2c",
+			"key": "BaseUrl",
+			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms",
+			"type": "string"
+		},
+		{
+			"id": "3b76aa61-a019-4cbe-aed3-5a44c2bc2e2d",
+			"key": "batchID1",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "20469176-5496-4def-89c8-3a282c6b0c31",
+			"key": "batchID",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "94edd6af-1855-4722-9f1d-3b11feda0750",
+			"key": "assignmentId1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "18f3ca6f-21f5-48d4-9528-65a10066f831",
+			"key": "submissionId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c9a539e3-23a6-44b9-8f50-d39ad09eadb2",
+			"key": "newbatchID1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ebac5a53-eba2-4e2c-8369-8d676e11881d",
+			"key": "batchID1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "7d5c331a-3d65-478c-9240-43949df89883",
+			"key": "UserId1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "21c3e7c8-3329-4f2a-9db2-06c6a993a06c",
+			"key": "UserID1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "535d18a9-feff-4982-b045-72fca8790cca",
+			"key": "programName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1789e765-661d-4d0c-9ba5-03bea1717352",
+			"key": "batchID2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "a3a13ed5-7e07-4ffe-9821-e3a0adc068ef",
+			"key": "UserId2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "0a011f45-d8fd-425e-8f15-3e19e9e4149e",
+			"key": "InvalidAssignmentID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c4987e83-4a72-4463-a534-79689ae7bae5",
+			"key": "batchID3",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "32242566-67aa-4e90-a845-3460c177aee0",
+			"key": "userID2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b8cdc3ba-bc7f-46dc-abf4-c389e1bf3b85",
+			"key": "userID3",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
