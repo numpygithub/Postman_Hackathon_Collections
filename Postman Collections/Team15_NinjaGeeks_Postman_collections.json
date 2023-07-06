@@ -41,7 +41,7 @@
 							}
 						}
 					],
-					"_postman_id": "66bc6dfb-7187-4ead-bea6-c634081f9c3f",
+					"id": "66bc6dfb-7187-4ead-bea6-c634081f9c3f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"programDescription\": \"{{programDescription}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n};",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescription}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -82,7 +82,7 @@
 							}
 						}
 					],
-					"_postman_id": "320f3746-5ee1-4da3-83b8-cf5a0991855d",
+					"id": "320f3746-5ee1-4da3-83b8-cf5a0991855d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -114,7 +114,7 @@
 							}
 						}
 					],
-					"_postman_id": "44008736-ee42-4706-b0f9-67831846dcb7",
+					"id": "44008736-ee42-4706-b0f9-67831846dcb7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -141,7 +141,7 @@
 							}
 						}
 					],
-					"_postman_id": "76a9d1cf-fff9-421d-b02d-49477c282130",
+					"id": "76a9d1cf-fff9-421d-b02d-49477c282130",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -177,7 +177,7 @@
 							}
 						}
 					],
-					"_postman_id": "f13bc043-3898-41d8-a090-be29d1f520f3",
+					"id": "f13bc043-3898-41d8-a090-be29d1f520f3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -198,7 +198,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "21359c4a-036a-412f-9b7f-6cf0d56fb2d1"
+			"id": "21359c4a-036a-412f-9b7f-6cf0d56fb2d1"
 		},
 		{
 			"name": "Program Batch Module",
@@ -237,7 +237,7 @@
 							}
 						}
 					],
-					"_postman_id": "fcc41879-a03f-4b52-b39a-ef1ea050fca4",
+					"id": "fcc41879-a03f-4b52-b39a-ef1ea050fca4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -273,7 +273,7 @@
 							}
 						}
 					],
-					"_postman_id": "c62a66b1-e4d2-43ce-bb24-fc40ad874226",
+					"id": "c62a66b1-e4d2-43ce-bb24-fc40ad874226",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -300,7 +300,7 @@
 							}
 						}
 					],
-					"_postman_id": "bb641da7-a02f-4789-a03b-dcb6d4004d78",
+					"id": "bb641da7-a02f-4789-a03b-dcb6d4004d78",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -327,7 +327,7 @@
 							}
 						}
 					],
-					"_postman_id": "05346327-55e8-4bbc-9f9d-041ff4db9296",
+					"id": "05346327-55e8-4bbc-9f9d-041ff4db9296",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -363,7 +363,7 @@
 							}
 						}
 					],
-					"_postman_id": "d9c22548-fdd4-423a-b70c-5da1c766be28",
+					"id": "d9c22548-fdd4-423a-b70c-5da1c766be28",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -384,7 +384,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "35d90555-65ed-43df-a1ab-959e936d5826"
+			"id": "35d90555-65ed-43df-a1ab-959e936d5826"
 		},
 		{
 			"name": "User Module",
@@ -422,7 +422,7 @@
 							}
 						}
 					],
-					"_postman_id": "9b3a3df3-6a12-40cb-b84b-e4edb87a4cf9",
+					"id": "9b3a3df3-6a12-40cb-b84b-e4edb87a4cf9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -463,7 +463,7 @@
 							}
 						}
 					],
-					"_postman_id": "0ce4ff57-b2fc-4c16-bcaa-7f6c9cc756f4",
+					"id": "0ce4ff57-b2fc-4c16-bcaa-7f6c9cc756f4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -500,7 +500,7 @@
 							}
 						}
 					],
-					"_postman_id": "90a816e6-a6ca-4a1d-b008-28034c380981",
+					"id": "90a816e6-a6ca-4a1d-b008-28034c380981",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -509,10 +509,7 @@
 						"header": [],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": [],
-							"options": {
-								"urlencoded": {}
-							}
+							"urlencoded": []
 						},
 						"url": "{{BaseUrl}}/users/users/{{UserID}}"
 					},
@@ -539,7 +536,7 @@
 							}
 						}
 					],
-					"_postman_id": "a5a1412d-d9ed-4def-bfdd-f63625bc5abc",
+					"id": "a5a1412d-d9ed-4def-bfdd-f63625bc5abc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -566,7 +563,7 @@
 							}
 						}
 					],
-					"_postman_id": "e376c144-84c6-4c5a-b920-f17e522e6406",
+					"id": "e376c144-84c6-4c5a-b920-f17e522e6406",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -604,7 +601,7 @@
 							}
 						}
 					],
-					"_postman_id": "da6f7009-bcd5-4226-af9e-1e2c19324a2b",
+					"id": "da6f7009-bcd5-4226-af9e-1e2c19324a2b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -640,7 +637,7 @@
 							}
 						}
 					],
-					"_postman_id": "249b8181-7337-413d-b1bb-715bf8d114c4",
+					"id": "249b8181-7337-413d-b1bb-715bf8d114c4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -676,7 +673,7 @@
 							}
 						}
 					],
-					"_postman_id": "cc4ac89f-f46d-4aed-983f-25102a883ffe",
+					"id": "cc4ac89f-f46d-4aed-983f-25102a883ffe",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -685,17 +682,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": "{{BaseUrl}}/users/users/getAllStaff"
 					},
 					"response": []
 				}
 			],
-			"_postman_id": "ae14ede8-f43e-49a2-9508-851ad7ceffc1"
+			"id": "ae14ede8-f43e-49a2-9508-851ad7ceffc1"
 		},
 		{
 			"name": "Assignment Module",
@@ -721,7 +715,7 @@
 							}
 						}
 					],
-					"_postman_id": "623cbdea-7913-40e6-a4a1-8c220c13b0ed",
+					"id": "623cbdea-7913-40e6-a4a1-8c220c13b0ed",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -766,7 +760,7 @@
 							}
 						}
 					],
-					"_postman_id": "fbdfd9ff-1360-4070-9890-96462856837b",
+					"id": "fbdfd9ff-1360-4070-9890-96462856837b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -781,10 +775,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": \"{{assignmentId}}\",\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{assignment_batchId}}\",\r\n  \"comments\": \"{{comments}}\",\r\n  \"createdBy\": \"{{Assignment_createdBy}}\",\r\n  \"dueDate\": \"{{dueDate}}\",\r\n  \"graderId\": \"{{graderId}}\",\r\n  \"pathAttachment1\": \"{{pathAttachment1}}\",\r\n  \"pathAttachment2\": \"{{pathAttachment2}}\",\r\n  \"pathAttachment3\": \"{{pathAttachment3}}\",\r\n  \"pathAttachment4\": \"{{pathAttachment4}}\",\r\n  \"pathAttachment5\": \"{{pathAttachment5}}\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": \"{{assignmentId}}\",\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{assignment_batchId}}\",\r\n  \"comments\": \"{{comments}}\",\r\n  \"createdBy\": \"{{Assignment_createdBy}}\",\r\n  \"dueDate\": \"{{dueDate}}\",\r\n  \"graderId\": \"{{graderId}}\",\r\n  \"pathAttachment1\": \"{{pathAttachment1}}\",\r\n  \"pathAttachment2\": \"{{pathAttachment2}}\",\r\n  \"pathAttachment3\": \"{{pathAttachment3}}\",\r\n  \"pathAttachment4\": \"{{pathAttachment4}}\",\r\n  \"pathAttachment5\": \"{{pathAttachment5}}\"\r\n}"
 						},
 						"url": "{{BaseUrl}}/assignments"
 					},
@@ -817,7 +808,7 @@
 							}
 						}
 					],
-					"_postman_id": "cf1628de-3377-4b82-a376-8b63902dba04",
+					"id": "cf1628de-3377-4b82-a376-8b63902dba04",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -863,7 +854,7 @@
 							}
 						}
 					],
-					"_postman_id": "c8a27265-b24b-4336-8d67-b4ff1e454836",
+					"id": "c8a27265-b24b-4336-8d67-b4ff1e454836",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -891,7 +882,7 @@
 							}
 						}
 					],
-					"_postman_id": "763fd44d-c078-42d2-a1be-1aa39f84a02d",
+					"id": "763fd44d-c078-42d2-a1be-1aa39f84a02d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -912,7 +903,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "fe8714f4-0e77-4ff4-aa19-d9c2f4876e51"
+			"id": "fe8714f4-0e77-4ff4-aa19-d9c2f4876e51"
 		},
 		{
 			"name": "Assignment Submit Module",
@@ -933,7 +924,7 @@
 							}
 						}
 					],
-					"_postman_id": "7258021e-54d7-466b-b4b5-a3326df95f5d",
+					"id": "7258021e-54d7-466b-b4b5-a3326df95f5d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1022,7 +1013,7 @@
 							}
 						}
 					],
-					"_postman_id": "4722f414-2788-491f-8294-165e45715497",
+					"id": "4722f414-2788-491f-8294-165e45715497",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1042,56 +1033,6 @@
 						"description": "POST Request : Submit Assignment\n\nStatus Code check :assignment submkitted successfully 201 ok with message and boolean success details."
 					},
 					"response": [
-						{
-							"id": "71d815f0-d63b-4019-bbf2-eb3515ea1101",
-							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"assignmentId\":264,\"userId\":\"U121\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{baseUrl}}/assignmentsubmission"
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Server",
-									"value": "Cowboy"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 26 Jun 2023 04:00:37 GMT"
-								},
-								{
-									"key": "Via",
-									"value": "1.1 vegur"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"submissionId\": 113,\n    \"assignmentId\": 264,\n    \"userId\": \"U121\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-26-2023 04:00:37\",\n    \"gradedBy\": null,\n    \"gradedDateTime\": null,\n    \"grade\": -1\n}"
-						},
 						{
 							"id": "a86ede40-ad1d-46c6-ba63-79a06b516349",
 							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01",
@@ -1141,6 +1082,56 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"submissionId\": 24,\n    \"assignmentId\": 10,\n    \"userId\": \"U92\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-24-2023 17:51:29\",\n    \"gradedBy\": null,\n    \"gradedDateTime\": null,\n    \"grade\": -1\n}"
+						},
+						{
+							"id": "71d815f0-d63b-4019-bbf2-eb3515ea1101",
+							"name": "Jun23-NinjaGeeks-AssignmentSubmit-Post_01",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"assignmentId\":264,\"userId\":\"U121\",\"subDesc\":\"Test1\",\"subComments\":\"test1\",\"subPathAttach1\":\"test\",\"subPathAttach2\":\"test\",\"subPathAttach3\":\"test\",\"subPathAttach4\":\"test\",\"subPathAttach5\":\"test\",\"subDateTime\":\"06-24-2023 16:04:24\",\"gradedBy\":null,\"gradedDateTime\":null,\"grade\":-1}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/assignmentsubmission"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Jun 2023 04:00:37 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"submissionId\": 113,\n    \"assignmentId\": 264,\n    \"userId\": \"U121\",\n    \"subDesc\": \"Test1\",\n    \"subComments\": \"test1\",\n    \"subPathAttach1\": \"test\",\n    \"subPathAttach2\": \"test\",\n    \"subPathAttach3\": \"test\",\n    \"subPathAttach4\": \"test\",\n    \"subPathAttach5\": \"test\",\n    \"subDateTime\": \"06-26-2023 04:00:37\",\n    \"gradedBy\": null,\n    \"gradedDateTime\": null,\n    \"grade\": -1\n}"
 						}
 					]
 				},
@@ -1169,7 +1160,7 @@
 							}
 						}
 					],
-					"_postman_id": "32268e8f-ec18-4fc1-92df-5cef2dfb248e",
+					"id": "32268e8f-ec18-4fc1-92df-5cef2dfb248e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1213,7 +1204,7 @@
 							}
 						}
 					],
-					"_postman_id": "176cc920-76da-4ebc-81b9-6b113055b31c",
+					"id": "176cc920-76da-4ebc-81b9-6b113055b31c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1329,7 +1320,7 @@
 							}
 						}
 					],
-					"_postman_id": "0e200f47-3cb7-4aa2-a094-b4b37d40ff90",
+					"id": "0e200f47-3cb7-4aa2-a094-b4b37d40ff90",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1414,7 +1405,7 @@
 							}
 						}
 					],
-					"_postman_id": "4becbf15-91c4-4eb5-8d9c-bfab1b19f3b1",
+					"id": "4becbf15-91c4-4eb5-8d9c-bfab1b19f3b1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1499,7 +1490,7 @@
 							}
 						}
 					],
-					"_postman_id": "a657277e-9bd4-4a22-8d5c-8da4faadae32",
+					"id": "a657277e-9bd4-4a22-8d5c-8da4faadae32",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1625,7 +1616,7 @@
 							}
 						}
 					],
-					"_postman_id": "1d57f99b-747f-45ad-86dd-f60bd01f4a0e",
+					"id": "1d57f99b-747f-45ad-86dd-f60bd01f4a0e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1709,7 +1700,7 @@
 							}
 						}
 					],
-					"_postman_id": "f4f174bc-16c5-45a9-a3fc-8f7638e2dca3",
+					"id": "f4f174bc-16c5-45a9-a3fc-8f7638e2dca3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1763,7 +1754,7 @@
 					]
 				}
 			],
-			"_postman_id": "0dd246c8-cd7c-4bc9-ac2b-36afa477269a"
+			"id": "0dd246c8-cd7c-4bc9-ac2b-36afa477269a"
 		},
 		{
 			"name": "Delete Module",
@@ -1784,7 +1775,7 @@
 							}
 						}
 					],
-					"_postman_id": "38007ae7-e6b6-40fc-b235-a79c04c2b430",
+					"id": "38007ae7-e6b6-40fc-b235-a79c04c2b430",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1811,7 +1802,7 @@
 							}
 						}
 					],
-					"_postman_id": "e17156ad-7dbe-427c-a829-ea75e438ee5b",
+					"id": "e17156ad-7dbe-427c-a829-ea75e438ee5b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1838,7 +1829,7 @@
 							}
 						}
 					],
-					"_postman_id": "b07c1fd9-96fe-4708-8dd1-8eeb943844ef",
+					"id": "b07c1fd9-96fe-4708-8dd1-8eeb943844ef",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1869,7 +1860,7 @@
 							}
 						}
 					],
-					"_postman_id": "fc4fbabc-48e3-4e51-8b3c-e85eb5ada20c",
+					"id": "fc4fbabc-48e3-4e51-8b3c-e85eb5ada20c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1915,7 +1906,7 @@
 							}
 						}
 					],
-					"_postman_id": "085f8350-0c57-444e-a6c7-8a655ff0f0a8",
+					"id": "085f8350-0c57-444e-a6c7-8a655ff0f0a8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1957,7 +1948,7 @@
 							}
 						}
 					],
-					"_postman_id": "5c9d3ade-f59e-4f2b-8466-afc96c133a04",
+					"id": "5c9d3ade-f59e-4f2b-8466-afc96c133a04",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2012,7 +2003,7 @@
 					]
 				}
 			],
-			"_postman_id": "83444fcf-40ff-4f66-9cf5-887cedda9059"
+			"id": "83444fcf-40ff-4f66-9cf5-887cedda9059"
 		},
 		{
 			"name": "Invalid Data Module",
@@ -2046,7 +2037,7 @@
 							}
 						}
 					],
-					"_postman_id": "c175e295-3613-4915-a147-1eac19d878d3",
+					"id": "c175e295-3613-4915-a147-1eac19d878d3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2086,7 +2077,7 @@
 							}
 						}
 					],
-					"_postman_id": "b176f7b5-e06a-4eb5-acbe-7786a455e89b",
+					"id": "b176f7b5-e06a-4eb5-acbe-7786a455e89b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2119,7 +2110,7 @@
 							}
 						}
 					],
-					"_postman_id": "d8fb7552-8487-4d09-af2a-8aae7877a727",
+					"id": "d8fb7552-8487-4d09-af2a-8aae7877a727",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2161,7 +2152,7 @@
 							}
 						}
 					],
-					"_postman_id": "1a242834-84a4-4513-ae60-39c20dfd6597",
+					"id": "1a242834-84a4-4513-ae60-39c20dfd6597",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2202,7 +2193,7 @@
 							}
 						}
 					],
-					"_postman_id": "138b32eb-a3a5-4384-b969-72d211a42bfe",
+					"id": "138b32eb-a3a5-4384-b969-72d211a42bfe",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2246,7 +2237,7 @@
 							}
 						}
 					],
-					"_postman_id": "9f93d0e8-24bb-4700-b6a4-8c7277f4fdca",
+					"id": "9f93d0e8-24bb-4700-b6a4-8c7277f4fdca",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2288,7 +2279,7 @@
 							}
 						}
 					],
-					"_postman_id": "8c9421bc-709c-4dd5-b75c-34e480f8ae05",
+					"id": "8c9421bc-709c-4dd5-b75c-34e480f8ae05",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2315,7 +2306,7 @@
 							}
 						}
 					],
-					"_postman_id": "71a0ca87-192f-48c9-9ff3-877284b24a2c",
+					"id": "71a0ca87-192f-48c9-9ff3-877284b24a2c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2324,10 +2315,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": "{{BaseUrl}}/batches/batchName/un23-NinjaGeeks-SDET-POSTMAN-218"
 					},
@@ -2359,7 +2347,7 @@
 							}
 						}
 					],
-					"_postman_id": "4bb3cf15-9e77-4959-80bb-b1c925e0801b",
+					"id": "4bb3cf15-9e77-4959-80bb-b1c925e0801b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2453,7 +2441,7 @@
 							}
 						}
 					],
-					"_postman_id": "42511889-1cac-47ba-9d5e-4aa27fe49082",
+					"id": "42511889-1cac-47ba-9d5e-4aa27fe49082",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2489,7 +2477,7 @@
 							}
 						}
 					],
-					"_postman_id": "b7d23c70-300a-4927-b875-3579c15e4f37",
+					"id": "b7d23c70-300a-4927-b875-3579c15e4f37",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2525,7 +2513,7 @@
 							}
 						}
 					],
-					"_postman_id": "3d33d6f0-8b98-4791-902a-6db269d11069",
+					"id": "3d33d6f0-8b98-4791-902a-6db269d11069",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2561,7 +2549,7 @@
 							}
 						}
 					],
-					"_postman_id": "96805d6e-f0fe-43c8-808e-4efd443007c5",
+					"id": "96805d6e-f0fe-43c8-808e-4efd443007c5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2608,7 +2596,7 @@
 							}
 						}
 					],
-					"_postman_id": "32583139-6718-4010-99c2-ee53773b7dc6",
+					"id": "32583139-6718-4010-99c2-ee53773b7dc6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2642,7 +2630,7 @@
 							}
 						}
 					],
-					"_postman_id": "40bbff67-bcad-4139-afcc-9803e92f95bc",
+					"id": "40bbff67-bcad-4139-afcc-9803e92f95bc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2676,7 +2664,7 @@
 							}
 						}
 					],
-					"_postman_id": "4cafd9d4-3fd3-428c-b4fa-d441f08cc549",
+					"id": "4cafd9d4-3fd3-428c-b4fa-d441f08cc549",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2724,7 +2712,7 @@
 							}
 						}
 					],
-					"_postman_id": "c0a79b85-c6cf-4244-977b-18ba6e98f841",
+					"id": "c0a79b85-c6cf-4244-977b-18ba6e98f841",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2739,10 +2727,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": 0,\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{batchId}}\",\r\n  \"comments\": \"string\",\r\n  \"createdBy\": \"\",\r\n  \"dueDate\": \"2023-07-25T22:00:04.964+00:00\",\r\n  \"graderId\": \"U19\",\r\n  \"pathAttachment1\": \"string\",\r\n  \"pathAttachment2\": \"string\",\r\n  \"pathAttachment3\": \"string\",\r\n  \"pathAttachment4\": \"string\",\r\n  \"pathAttachment5\": \"string\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"assignmentDescription\": \"{{assignmentDescription}}\",\r\n  \"assignmentId\": 0,\r\n  \"assignmentName\": \"{{assignmentName}}\",\r\n  \"batchId\": \"{{batchId}}\",\r\n  \"comments\": \"string\",\r\n  \"createdBy\": \"\",\r\n  \"dueDate\": \"2023-07-25T22:00:04.964+00:00\",\r\n  \"graderId\": \"U19\",\r\n  \"pathAttachment1\": \"string\",\r\n  \"pathAttachment2\": \"string\",\r\n  \"pathAttachment3\": \"string\",\r\n  \"pathAttachment4\": \"string\",\r\n  \"pathAttachment5\": \"string\"\r\n}"
 						},
 						"url": "{{BaseUrl}}/assignments"
 					},
@@ -2789,7 +2774,7 @@
 							}
 						}
 					],
-					"_postman_id": "bf2d129e-688d-4c50-94be-f5e569800480",
+					"id": "bf2d129e-688d-4c50-94be-f5e569800480",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2874,7 +2859,7 @@
 							}
 						}
 					],
-					"_postman_id": "608929f3-6b27-41a7-8975-0c3871dafc24",
+					"id": "608929f3-6b27-41a7-8975-0c3871dafc24",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2959,7 +2944,7 @@
 							}
 						}
 					],
-					"_postman_id": "60263429-ce3f-4bfa-985e-582054403eb4",
+					"id": "60263429-ce3f-4bfa-985e-582054403eb4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3038,7 +3023,7 @@
 							}
 						}
 					],
-					"_postman_id": "c054d7f8-5191-4e32-97e6-6178c49aa548",
+					"id": "c054d7f8-5191-4e32-97e6-6178c49aa548",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3126,7 +3111,7 @@
 							}
 						}
 					],
-					"_postman_id": "73582540-f0f3-470b-b015-1971a57c3492",
+					"id": "73582540-f0f3-470b-b015-1971a57c3492",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3205,7 +3190,7 @@
 							}
 						}
 					],
-					"_postman_id": "f9f62c59-d305-4b0a-a5b9-78768c564710",
+					"id": "f9f62c59-d305-4b0a-a5b9-78768c564710",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3288,7 +3273,7 @@
 							}
 						}
 					],
-					"_postman_id": "beb06573-7e2e-4346-8110-c441ed436a39",
+					"id": "beb06573-7e2e-4346-8110-c441ed436a39",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3369,7 +3354,7 @@
 							}
 						}
 					],
-					"_postman_id": "b74489bf-3fcf-41bb-87d7-7f66c798a069",
+					"id": "b74489bf-3fcf-41bb-87d7-7f66c798a069",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3469,7 +3454,7 @@
 							}
 						}
 					],
-					"_postman_id": "a4934893-e818-4d38-bed3-5d12848b12c3",
+					"id": "a4934893-e818-4d38-bed3-5d12848b12c3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -3562,7 +3547,7 @@
 							}
 						}
 					],
-					"_postman_id": "71bc4eb8-420a-4ea5-a0f0-aa6f1ab50404",
+					"id": "71bc4eb8-420a-4ea5-a0f0-aa6f1ab50404",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disabledSystemHeaders": {}
@@ -3591,7 +3576,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "8223fa6e-d80f-4cd1-a33e-f1b51761da79"
+			"id": "8223fa6e-d80f-4cd1-a33e-f1b51761da79"
 		}
 	],
 	"event": [
@@ -3618,102 +3603,86 @@
 	],
 	"variable": [
 		{
-			"id": "ff0ee58c-7af4-482d-8657-3179e83daf2c",
+			"id": "4e52154c-368c-4ad1-ae8f-f0cc639fc3c3",
 			"key": "BaseUrl",
-			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms",
-			"type": "string"
+			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "3b76aa61-a019-4cbe-aed3-5a44c2bc2e2d",
+			"id": "1a6cb245-6a2e-4cab-95cc-0c6041b55ae2",
 			"key": "batchID1",
 			"value": "",
-			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "20469176-5496-4def-89c8-3a282c6b0c31",
+			"id": "414e06b9-2c84-4f84-ab3a-52ea4997c69d",
 			"key": "batchID",
 			"value": "",
-			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "94edd6af-1855-4722-9f1d-3b11feda0750",
+			"id": "6c57cc0f-36dc-43e4-a276-bbe3cf0747ca",
 			"key": "assignmentId1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "18f3ca6f-21f5-48d4-9528-65a10066f831",
+			"id": "a812b9d7-47fa-4bdb-abcb-5eee7d736bc2",
 			"key": "submissionId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "c9a539e3-23a6-44b9-8f50-d39ad09eadb2",
+			"id": "715b3771-8baa-431e-a217-887b803cd13d",
 			"key": "newbatchID1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "ebac5a53-eba2-4e2c-8369-8d676e11881d",
+			"id": "e505763f-013a-42fd-93c7-60ee59207c71",
 			"key": "batchID1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "7d5c331a-3d65-478c-9240-43949df89883",
+			"id": "b20618df-8236-47fb-ae37-33481c38bef9",
 			"key": "UserId1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "21c3e7c8-3329-4f2a-9db2-06c6a993a06c",
+			"id": "b3501b71-ce56-4eb9-ba31-a106774f11c9",
 			"key": "UserID1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "535d18a9-feff-4982-b045-72fca8790cca",
+			"id": "df0109ec-a5b9-48bf-9820-cd93aed35cfb",
 			"key": "programName",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "1789e765-661d-4d0c-9ba5-03bea1717352",
+			"id": "64b05a5d-3639-49ae-adee-aeb5487890b1",
 			"key": "batchID2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "a3a13ed5-7e07-4ffe-9821-e3a0adc068ef",
+			"id": "8d1ca49b-21c7-45de-8ba3-ad407322d5a9",
 			"key": "UserId2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "0a011f45-d8fd-425e-8f15-3e19e9e4149e",
+			"id": "c69daad4-29e3-41fd-bbd3-e78f40f1b0c3",
 			"key": "InvalidAssignmentID",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "c4987e83-4a72-4463-a534-79689ae7bae5",
+			"id": "f51f843c-a5a7-4215-ba80-804a55810389",
 			"key": "batchID3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "32242566-67aa-4e90-a845-3460c177aee0",
+			"id": "18a324e0-43be-4c2d-a625-9a77cfbab35f",
 			"key": "userID2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b8cdc3ba-bc7f-46dc-abf4-c389e1bf3b85",
+			"id": "4459a79d-bc35-4d8a-b37e-13c3ce964157",
 			"key": "userID3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
