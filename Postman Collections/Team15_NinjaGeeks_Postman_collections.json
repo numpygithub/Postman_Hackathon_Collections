@@ -1098,7 +1098,7 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/assignmentsubmission"
+								"url": "{{BaseUrl}}/assignmentsubmission"
 							},
 							"status": "Created",
 							"code": 201,
@@ -3603,84 +3603,84 @@
 	],
 	"variable": [
 		{
-			"id": "c0ba51ab-a035-4c75-b9b8-611af054c2de",
+			"id": "9b072570-e0d8-4618-8ecd-ac93811cd0aa",
 			"key": "BaseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "244378a9-6f07-47be-bea2-6a73038a1ed1",
+			"id": "8791a719-c229-4be6-945d-e9560407855d",
 			"key": "batchID1",
 			"value": "",
 			"disabled": true
 		},
 		{
-			"id": "3ea94186-ae61-460b-be5b-f467ac5119a2",
+			"id": "4db08f0c-752f-47b0-9f75-f8518150cde1",
 			"key": "batchID",
 			"value": "",
 			"disabled": true
 		},
 		{
-			"id": "e3a53ccf-7757-4d5a-8dc6-225b015a3cb9",
+			"id": "fc2dfdb7-b2d0-453c-8f7f-47d889fc62ce",
 			"key": "assignmentId1",
 			"value": ""
 		},
 		{
-			"id": "4826bc35-7806-4605-a230-0c38c5ae72e6",
+			"id": "1c78001a-b08a-441a-98dc-19b5fdbd6f0b",
 			"key": "submissionId",
 			"value": ""
 		},
 		{
-			"id": "ba12e8f7-f97e-4fe1-98f5-c5d6b43e5da2",
+			"id": "b3ae0b9b-24cc-4e02-ac02-ff1929a0344a",
 			"key": "newbatchID1",
 			"value": ""
 		},
 		{
-			"id": "6cdd04cd-df39-437b-8450-0a2b7c156a85",
+			"id": "432885bc-a100-4b38-b779-4735c5114f9d",
 			"key": "batchID1",
 			"value": ""
 		},
 		{
-			"id": "4040f1ef-40ad-4fb8-939d-875760005109",
+			"id": "9ed4947f-70a8-44ee-a3fe-ddb5729ec25e",
 			"key": "UserId1",
 			"value": ""
 		},
 		{
-			"id": "faca4cbe-9b63-4ef1-895c-c26df78c8d8f",
+			"id": "ff1e19fd-b43c-47c6-8b25-28a5acb81e83",
 			"key": "UserID1",
 			"value": ""
 		},
 		{
-			"id": "15e88714-c709-46e2-94cb-f0bb5f6297ae",
+			"id": "cea3d7df-518d-4f93-9742-5f9a4b81ce7d",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "ad397f88-ae87-4501-83d9-8dc879eb7eb8",
+			"id": "31789210-0edf-45af-a9ee-559136138a15",
 			"key": "batchID2",
 			"value": ""
 		},
 		{
-			"id": "3b7d9450-4494-4134-be91-03aa568b18fd",
+			"id": "4e24572e-7422-46fa-80e0-97515fdced87",
 			"key": "UserId2",
 			"value": ""
 		},
 		{
-			"id": "f61a66ce-44ec-41b3-a118-c0f6624e0f1d",
+			"id": "efcd5a9b-f2bc-46e4-8bd2-2defddf43fba",
 			"key": "InvalidAssignmentID",
 			"value": ""
 		},
 		{
-			"id": "d8538073-d37a-44cf-81a3-63295a59411e",
+			"id": "f368d41e-3ed5-430d-97af-e0e8d2a41f50",
 			"key": "batchID3",
 			"value": ""
 		},
 		{
-			"id": "4c624a27-4d59-40dd-86f7-3d20e9a262dc",
+			"id": "09f8f9c3-489d-4339-946c-d4c396fbec59",
 			"key": "userID2",
 			"value": ""
 		},
 		{
-			"id": "1cf0ebb4-484b-465e-9c58-60720f2f8341",
+			"id": "ba99c7db-9de4-4498-a942-69f3a3f9bc96",
 			"key": "userID3",
 			"value": ""
 		}
